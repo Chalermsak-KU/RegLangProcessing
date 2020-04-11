@@ -1,0 +1,29 @@
+NFA for regular expression 'a|(b&c).star()' with value 'aU(bc)*' is
+regx aU(bc)* : string 'a' -> True
+regx aU(bc)* : string '' -> True
+regx aU(bc)* : string 'bc' -> True
+regx aU(bc)* : string 'bcbc' -> True
+regx aU(bc)* : string 'abc' -> False
+regx aU(bc)* : string 'bcc' -> False
+regx aU(bc)* : string 'ac' -> False
+
+NFA for regular expression '(a|b).star()&c' with value '((aUb)*)c' is
+regx ((aUb)*)c : string '' -> False
+regx ((aUb)*)c : string 'c' -> True
+regx ((aUb)*)c : string 'ac' -> True
+regx ((aUb)*)c : string 'bc' -> True
+regx ((aUb)*)c : string 'abbac' -> True
+regx ((aUb)*)c : string 'aab' -> False
+regx ((aUb)*)c : string 'cab' -> False
+
+NFA for regular expression '(a|b&c).star()' with value '(aUbc)*' is
+regx (aUbc)* : string '' -> True
+regx (aUbc)* : string 'a' -> True
+regx (aUbc)* : string 'bc' -> True
+regx (aUbc)* : string 'bcbc' -> True
+regx (aUbc)* : string 'aaa' -> True
+regx (aUbc)* : string 'bcabcaa' -> True
+regx (aUbc)* : string 'aabc' -> True
+regx (aUbc)* : string 'cb' -> False
+regx (aUbc)* : string 'acbc' -> False
+

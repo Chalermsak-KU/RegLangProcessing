@@ -1,0 +1,69 @@
+
+NFA m4 is as follows:
+states = [0, 1, 2, 3]
+sigma = ['a', 'b']
+start = 0
+finals = [0]
+delta = {
+    (0, 'a') : {1}
+    (1, 'a') : {2}
+    (1, 'b') : {0, 3}
+    (2, 'b') : {0}
+    (3, 'a') : {0}
+}
+
+[accept version 1]
+NFA m4 accepts ""
+[accept version 2]
+NFA m4 accepts ""
+
+[accept version 1]
+NFA m4 does not accept "a"
+[accept version 2]
+NFA m4 does not accept "a"
+
+[accept version 1]
+NFA m4 does not accept "b"
+[accept version 2]
+NFA m4 does not accept "b"
+
+[accept version 1]
+NFA m4 accepts "ab"
+[accept version 2]
+NFA m4 accepts "ab"
+
+[accept version 1]
+NFA m4 accepts "aab"
+[accept version 2]
+NFA m4 accepts "aab"
+
+[accept version 1]
+NFA m4 accepts "aba"
+[accept version 2]
+NFA m4 accepts "aba"
+
+[accept version 1]
+NFA m4 does not accept "bab"
+[accept version 2]
+NFA m4 does not accept "bab"
+
+[accept version 1]
+NFA m4 accepts "abab"
+[accept version 2]
+NFA m4 accepts "abab"
+
+[accept version 1]
+NFA m4 does not accept "abaa"
+[accept version 2]
+NFA m4 does not accept "abaa"
+
+[accept version 1]
+NFA m4 accepts "abaaababab"
+[accept version 2]
+NFA m4 accepts "abaaababab"
+
+[accept version 1]
+NFA m4 does not accept "abaaabb"
+[accept version 2]
+NFA m4 does not accept "abaaabb"
+

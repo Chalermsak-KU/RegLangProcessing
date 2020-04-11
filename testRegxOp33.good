@@ -1,0 +1,54 @@
+NFA for regular expression 'a' is
+states = [1, 2]
+sigma = ['a']
+start = 1
+finals = [2]
+delta = {
+    (1, 'a') : {2}
+}
+NFA for regular expression '@' is
+states = [1, 2]
+sigma = []
+start = 1
+finals = [2]
+delta = {
+}
+NFA for regular expression 'a@' with value '@' is
+states = [1, 2]
+sigma = []
+start = 1
+finals = [2]
+delta = {
+}
+regx @ : string 'a' -> False
+regx @ : string 'b' -> False
+regx @ : string 'aa' -> False
+regx @ : string '12a' -> False
+regx @ : string '' -> False
+
+NFA for regular expression '@a' with value '@' is
+states = [1, 2]
+sigma = []
+start = 1
+finals = [2]
+delta = {
+}
+regx @ : string 'a' -> False
+regx @ : string 'b' -> False
+regx @ : string 'aa' -> False
+regx @ : string '12a' -> False
+regx @ : string '' -> False
+
+NFA for regular expression '@@' with value @' is
+states = [1, 2]
+sigma = []
+start = 1
+finals = [2]
+delta = {
+}
+regx @ : string 'a' -> False
+regx @ : string 'b' -> False
+regx @ : string 'aa' -> False
+regx @ : string '12a' -> False
+regx @ : string '' -> False
+

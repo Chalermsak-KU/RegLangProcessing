@@ -1,0 +1,37 @@
+NFA for regular expression 'a|b&c' with value 'aUbc' is
+regx aUbc : string 'a' -> True
+regx aUbc : string 'b' -> False
+regx aUbc : string 'c' -> False
+regx aUbc : string 'bc' -> True
+regx aUbc : string 'ab' -> False
+regx aUbc : string 'ac' -> False
+regx aUbc : string '' -> False
+
+NFA for regular expression '(a|b)&c' with value '(aUb)c' is
+regx (aUb)c : string 'a' -> False
+regx (aUb)c : string 'b' -> False
+regx (aUb)c : string 'c' -> False
+regx (aUb)c : string 'bc' -> True
+regx (aUb)c : string 'ab' -> False
+regx (aUb)c : string 'ac' -> True
+regx (aUb)c : string '' -> False
+
+NFA for regular expression 'a|b.star()&c' with value 'aUb*c' is
+regx aUb*c : string 'a' -> True
+regx aUb*c : string 'b' -> False
+regx aUb*c : string 'c' -> True
+regx aUb*c : string 'bc' -> True
+regx aUb*c : string 'bbc' -> True
+regx aUb*c : string 'ac' -> False
+regx aUb*c : string '' -> False
+
+NFA for regular expression 'a&(b&c).star()' with value 'a(bc)*' is
+regx a(bc)* : string 'a' -> True
+regx a(bc)* : string 'b' -> False
+regx a(bc)* : string 'c' -> False
+regx a(bc)* : string 'abc' -> True
+regx a(bc)* : string 'abcbcbc' -> True
+regx a(bc)* : string 'bc' -> False
+regx a(bc)* : string 'acbbc' -> False
+regx a(bc)* : string '' -> False
+

@@ -1,0 +1,65 @@
+NFA for regular expression 'a|b|c' with value 'aUbUc' is
+states = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+sigma = ['a', 'b', 'c']
+start = 9
+finals = [10]
+delta = {
+    (1, 'a') : {2}
+    (2, '') : {6}
+    (3, 'b') : {4}
+    (4, '') : {6}
+    (5, '') : {1, 3}
+    (6, '') : {10}
+    (7, 'c') : {8}
+    (8, '') : {10}
+    (9, '') : {5, 7}
+}
+regx aUbUc : string 'a' -> True
+regx aUbUc : string 'b' -> True
+regx aUbUc : string 'c' -> True
+regx aUbUc : string '1' -> False
+regx aUbUc : string 'ab' -> False
+regx aUbUc : string 'cbaa' -> False
+regx aUbUc : string '' -> False
+
+NFA for regular expression 'a&b&c' with value 'abc' is
+states = [1, 2, 3, 5]
+sigma = ['a', 'b', 'c']
+start = 1
+finals = [5]
+delta = {
+    (1, 'a') : {2}
+    (2, 'b') : {3}
+    (3, 'c') : {5}
+}
+regx abc : string 'a' -> False
+regx abc : string 'b' -> False
+regx abc : string 'c' -> False
+regx abc : string 'ab' -> False
+regx abc : string 'bc' -> False
+regx abc : string 'abc' -> True
+regx abc : string 'abcd' -> False
+regx abc : string 'a12b' -> False
+regx abc : string '' -> False
+
+NFA for regular expression 'a.star().star()' with value '(a*)*' is
+states = [1, 2, 3, 4, 5, 6]
+sigma = ['a']
+start = 5
+finals = [6]
+delta = {
+    (1, 'a') : {2}
+    (2, '') : {1, 4}
+    (3, '') : {1, 4}
+    (4, '') : {3, 6}
+    (5, '') : {3, 6}
+}
+regx (a*)* : string '' -> True
+regx (a*)* : string 'a' -> True
+regx (a*)* : string 'aa' -> True
+regx (a*)* : string 'aaa' -> True
+regx (a*)* : string 'aaaa' -> True
+regx (a*)* : string 'b' -> False
+regx (a*)* : string 'aaab' -> False
+regx (a*)* : string 'a12b' -> False
+

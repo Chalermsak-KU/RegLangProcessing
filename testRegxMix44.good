@@ -1,0 +1,37 @@
+regx c*((aUbc*)*) : string '' -> True
+regx c*((aUbc*)*) : string 'a' -> True
+regx c*((aUbc*)*) : string 'b' -> True
+regx c*((aUbc*)*) : string 'ccc' -> True
+regx c*((aUbc*)*) : string 'abcccaabc' -> True
+regx c*((aUbc*)*) : string 'ac' -> False
+regx c*((aUbc*)*) : string 'babcacc' -> False
+
+regx (#U1U11)((0U01U011)*) : string '' -> True
+regx (#U1U11)((0U01U011)*) : string '0' -> True
+regx (#U1U11)((0U01U011)*) : string '1' -> True
+regx (#U1U11)((0U01U011)*) : string '11' -> True
+regx (#U1U11)((0U01U011)*) : string '01101' -> True
+regx (#U1U11)((0U01U011)*) : string '11010001101' -> True
+regx (#U1U11)((0U01U011)*) : string '111' -> False
+regx (#U1U11)((0U01U011)*) : string '001110' -> False
+regx (#U1U11)((0U01U011)*) : string '0110001011101' -> False
+
+regx b*U(b*ab*ab*ab*)* : string '' -> True
+regx b*U(b*ab*ab*ab*)* : string 'ab' -> False
+regx b*U(b*ab*ab*ab*)* : string 'baabbab' -> True
+regx b*U(b*ab*ab*ab*)* : string 'bbaa' -> False
+regx b*U(b*ab*ab*ab*)* : string 'aaa' -> True
+regx b*U(b*ab*ab*ab*)* : string 'aababbbaaab' -> True
+regx b*U(b*ab*ab*ab*)* : string 'aaaabaaaaa' -> True
+regx b*U(b*ab*ab*ab*)* : string 'babaabaa' -> False
+
+regx 0*U((0*(1U11))((00*(1U11))*))0* : string '' -> True
+regx 0*U((0*(1U11))((00*(1U11))*))0* : string '0' -> True
+regx 0*U((0*(1U11))((00*(1U11))*))0* : string '1' -> True
+regx 0*U((0*(1U11))((00*(1U11))*))0* : string '11' -> True
+regx 0*U((0*(1U11))((00*(1U11))*))0* : string '01101' -> True
+regx 0*U((0*(1U11))((00*(1U11))*))0* : string '11010001101' -> True
+regx 0*U((0*(1U11))((00*(1U11))*))0* : string '111' -> False
+regx 0*U((0*(1U11))((00*(1U11))*))0* : string '001110' -> False
+regx 0*U((0*(1U11))((00*(1U11))*))0* : string '0110001011101' -> False
+

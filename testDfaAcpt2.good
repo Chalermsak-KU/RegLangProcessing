@@ -1,0 +1,17 @@
+DFA that accepts the empty set is
+----------------------------------------
+states = ['_H_', 'f', 's']
+sigma = ['0']
+start = s
+finals = ['f']
+delta = {
+    ('_H_', '0') : _H_
+    ('f', '0') : _H_
+    ('s', '0') : _H_
+}
+----------------------------------------
+'' not accepted
+'0' not accepted
+'00' not accepted
+'000' not accepted
+'0000' not accepted

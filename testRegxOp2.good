@@ -1,0 +1,70 @@
+NFA for regular expression 'a' is
+states = [1, 2]
+sigma = ['a']
+start = 1
+finals = [2]
+delta = {
+    (1, 'a') : {2}
+}
+NFA for regular expression '#' is
+states = [1, 2]
+sigma = []
+start = 1
+finals = [2]
+delta = {
+    (1, '') : {2}
+}
+NFA for regular expression 'aU#' is
+states = [1, 2, 3, 4, 5, 6]
+sigma = ['a']
+start = 5
+finals = [6]
+delta = {
+    (1, 'a') : {2}
+    (2, '') : {6}
+    (3, '') : {4}
+    (4, '') : {6}
+    (5, '') : {1, 3}
+}
+regx aU# : string 'a' -> True
+regx aU# : string 'b' -> False
+regx aU# : string 'aa' -> False
+regx aU# : string '12a' -> False
+regx aU# : string '' -> True
+
+NFA for regular expression '#Ua' is
+states = [1, 2, 3, 4, 5, 6]
+sigma = ['a']
+start = 5
+finals = [6]
+delta = {
+    (1, '') : {2}
+    (2, '') : {6}
+    (3, 'a') : {4}
+    (4, '') : {6}
+    (5, '') : {1, 3}
+}
+regx #Ua : string 'a' -> True
+regx #Ua : string 'b' -> False
+regx #Ua : string 'aa' -> False
+regx #Ua : string '12a' -> False
+regx #Ua : string '' -> True
+
+NFA for regular expression '#U#' is
+states = [1, 2, 3, 4, 5, 6]
+sigma = []
+start = 5
+finals = [6]
+delta = {
+    (1, '') : {2}
+    (2, '') : {6}
+    (3, '') : {4}
+    (4, '') : {6}
+    (5, '') : {1, 3}
+}
+regx #U# : string 'a' -> False
+regx #U# : string 'b' -> False
+regx #U# : string 'aa' -> False
+regx #U# : string '12a' -> False
+regx #U# : string '' -> True
+

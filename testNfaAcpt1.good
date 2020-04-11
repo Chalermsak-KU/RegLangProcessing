@@ -1,0 +1,60 @@
+
+NFA m2:
+states = [0, 1, 2, 3, 4]
+sigma = ['a', 'b']
+start = 0
+finals = [3, 4]
+delta = {
+    (0, '') : {1}
+    (0, 'a') : {0}
+    (0, 'b') : {0, 2}
+    (1, 'b') : {2, 4}
+    (2, 'a') : {3}
+    (3, '') : {4}
+    (4, 'a') : {3}
+}
+[accept version 1]
+NFA m2 accepts "b"
+[accept version 2]
+NFA m2 accepts "b"
+
+[accept version 1]
+NFA m2 accepts "bb"
+[accept version 2]
+NFA m2 accepts "bb"
+
+[accept version 1]
+NFA m2 accepts "bba"
+[accept version 2]
+NFA m2 accepts "bba"
+
+[accept version 1]
+NFA m2 accepts "ab"
+[accept version 2]
+NFA m2 accepts "ab"
+
+[accept version 1]
+NFA m2 accepts "aba"
+[accept version 2]
+NFA m2 accepts "aba"
+
+[accept version 1]
+NFA m2 accepts "aababaabb"
+[accept version 2]
+NFA m2 accepts "aababaabb"
+
+[accept version 1]
+NFA m2 does not accept "a"
+[accept version 2]
+NFA m2 does not accept "a"
+
+[accept version 1]
+NFA m2 does not accept "aa"
+[accept version 2]
+NFA m2 does not accept "aa"
+
+[accept version 1]
+NFA m2 does not accept ""
+[accept version 2]
+NFA m2 does not accept ""
+

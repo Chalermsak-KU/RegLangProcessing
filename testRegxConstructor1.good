@@ -1,0 +1,31 @@
+NFA for regular expression 'a' is
+states = [1, 2]
+sigma = ['a']
+start = 1
+finals = [2]
+delta = {
+    (1, 'a') : {2}
+}
+NFA for regular expression 'b' is
+states = [1, 2]
+sigma = ['b']
+start = 1
+finals = [2]
+delta = {
+    (1, 'b') : {2}
+}
+NFA for regular expression '#' (empty string) is
+states = [1, 2]
+sigma = []
+start = 1
+finals = [2]
+delta = {
+    (1, '') : {2}
+}
+NFA for regular expression '@' (empty set) is
+states = [1, 2]
+sigma = []
+start = 1
+finals = [2]
+delta = {
+}

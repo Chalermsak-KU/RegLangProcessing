@@ -1,0 +1,34 @@
+r1 is c*((aUbc*)*)
+DFA d11 is
+----------------------------------------
+states = [1, 2, 3]
+sigma = ['a', 'b', 'c']
+start = 1
+finals = [1, 2]
+delta = {
+    (1, 'a') : 2
+    (1, 'b') : 1
+    (1, 'c') : 1
+    (2, 'a') : 2
+    (2, 'b') : 1
+    (2, 'c') : 3
+    (3, 'a') : 3
+    (3, 'b') : 3
+    (3, 'c') : 3
+}
+----------------------------------------
+r11 is (bUc)*U((((bUc)*)a)((aU(b((bUc)*))a)*))(#Ub((bUc)*))
+r1.equiv(r11) is True
+c*((aUbc*)*) == (bUc)*U((((bUc)*)a)((aU(b((bUc)*))a)*))(#Ub((bUc)*)) is True
+----------------------------------------
+r2 is (#Ucc*)((aUb(c*cU#))*)
+r1.equiv(r2) is True
+c*((aUbc*)*) == (#Ucc*)((aUb(c*cU#))*) is True
+r11.equiv(r2) is True
+(bUc)*U((((bUc)*)a)((aU(b((bUc)*))a)*))(#Ub((bUc)*)) == (#Ucc*)((aUb(c*cU#))*) is True
+----------------------------------------
+r3 is (#Ucc*)((aUbc*c)*)
+r1.equiv(r3) is False
+c*((aUbc*)*) == (#Ucc*)((aUbc*c)*) is False
+r11.equiv(r3) is False
+(bUc)*U((((bUc)*)a)((aU(b((bUc)*))a)*))(#Ub((bUc)*)) == (#Ucc*)((aUbc*c)*) is False

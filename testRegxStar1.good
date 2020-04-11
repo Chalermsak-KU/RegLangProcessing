@@ -1,0 +1,26 @@
+NFA for regular expression 'a' is
+states = [1, 2]
+sigma = ['a']
+start = 1
+finals = [2]
+delta = {
+    (1, 'a') : {2}
+}
+NFA for regular expression 'a.star()' with value 'a*' is
+states = [1, 2, 3, 4]
+sigma = ['a']
+start = 3
+finals = [4]
+delta = {
+    (1, 'a') : {2}
+    (2, '') : {1, 4}
+    (3, '') : {1, 4}
+}
+regx a* : string '' -> True
+regx a* : string 'a' -> True
+regx a* : string 'aa' -> True
+regx a* : string 'aaa' -> True
+regx a* : string 'b' -> False
+regx a* : string 'ab' -> False
+regx a* : string 'aaa3' -> False
+

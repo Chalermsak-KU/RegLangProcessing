@@ -1,0 +1,20 @@
+regx a : string 'a' -> True
+regx a : string 'b' -> False
+regx a : string '1' -> False
+regx a : string '' -> False
+
+regx b : string 'a' -> False
+regx b : string 'b' -> True
+regx b : string '1' -> False
+regx b : string '' -> False
+
+regx # : string 'a' -> False
+regx # : string 'b' -> False
+regx # : string '1' -> False
+regx # : string '' -> True
+
+regx @ : string 'a' -> False
+regx @ : string 'b' -> False
+regx @ : string '1' -> False
+regx @ : string '' -> False
+

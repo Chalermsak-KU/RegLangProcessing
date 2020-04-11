@@ -1,0 +1,61 @@
+NFA for regular expression 'a' is
+states = [1, 2]
+sigma = ['a']
+start = 1
+finals = [2]
+delta = {
+    (1, 'a') : {2}
+}
+NFA for regular expression '#' is
+states = [1, 2]
+sigma = []
+start = 1
+finals = [2]
+delta = {
+    (1, '') : {2}
+}
+NFA for regular expression a# with value 'a' is
+states = [1, 2, 4]
+sigma = ['a']
+start = 1
+finals = [4]
+delta = {
+    (1, 'a') : {2}
+    (2, '') : {4}
+}
+regx a : string 'a' -> True
+regx a : string 'b' -> False
+regx a : string 'aa' -> False
+regx a : string '12a' -> False
+regx a : string '' -> False
+
+NFA for regular expression #a with value 'a' is
+states = [1, 2, 4]
+sigma = ['a']
+start = 1
+finals = [4]
+delta = {
+    (1, '') : {2}
+    (2, 'a') : {4}
+}
+regx a : string 'a' -> True
+regx a : string 'b' -> False
+regx a : string 'aa' -> False
+regx a : string '12a' -> False
+regx a : string '' -> False
+
+NFA for regular expression ## with value '#' is
+states = [1, 2, 4]
+sigma = []
+start = 1
+finals = [4]
+delta = {
+    (1, '') : {2}
+    (2, '') : {4}
+}
+regx # : string 'a' -> False
+regx # : string 'b' -> False
+regx # : string 'aa' -> False
+regx # : string '12a' -> False
+regx # : string '' -> True
+
