@@ -1,8 +1,8 @@
 NFA for regular expression 'aUbUc' with value 'aUbUc' is
-states = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-sigma = ['a', 'b', 'c']
+states = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+sigma = {'a', 'b', 'c'}
 start = 9
-finals = [10]
+finals = {10}
 delta = {
     (1, 'a') : {2}
     (2, '') : {6}
@@ -23,10 +23,10 @@ regx aUbUc : string 'cbaa' -> False
 regx aUbUc : string '' -> False
 
 NFA for regular expression 'abc' with value 'abc' is
-states = [1, 2, 3, 5]
-sigma = ['a', 'b', 'c']
+states = {1, 2, 3, 5}
+sigma = {'a', 'b', 'c'}
 start = 1
-finals = [5]
+finals = {5}
 delta = {
     (1, 'a') : {2}
     (2, 'b') : {3}
@@ -43,10 +43,10 @@ regx abc : string 'a12b' -> False
 regx abc : string '' -> False
 
 NFA for regular expression 'a**' with value '(a*)*' is
-states = [1, 2, 3, 4, 5, 6]
-sigma = ['a']
+states = {1, 2, 3, 4, 5, 6}
+sigma = {'a'}
 start = 5
-finals = [6]
+finals = {6}
 delta = {
     (1, 'a') : {2}
     (2, '') : {1, 4}

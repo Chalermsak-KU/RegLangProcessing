@@ -1,9 +1,9 @@
 
 NFA m12 is as follows:
-states = [1, 2, 3, 4, 5]
-sigma = ['a', 'b']
+states = {1, 2, 3, 4, 5}
+sigma = {'a', 'b'}
 start = 1
-finals = [4, 5]
+finals = {4, 5}
 delta = {
     (1, 'a') : {1, 2}
     (1, 'b') : {2}
@@ -16,10 +16,10 @@ delta = {
 }
 
 simplified NFA for m12 is as follows:
-states = [1, 2, 3, 4, 5, 6, 7]
-sigma = ['a', 'b']
+states = {1, 2, 3, 4, 5, 6, 7}
+sigma = {'a', 'b'}
 start = 6
-finals = [7]
+finals = {7}
 delta = {
     (1, 'a') : {1, 2}
     (1, 'b') : {2}

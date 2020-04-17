@@ -1,16 +1,16 @@
 NFA for regular expression 'a' is
-states = [1, 2]
-sigma = ['a']
+states = {1, 2}
+sigma = {'a'}
 start = 1
-finals = [2]
+finals = {2}
 delta = {
     (1, 'a') : {2}
 }
 NFA for regular expression 'a.star()' with value 'a*' is
-states = [1, 2, 3, 4]
-sigma = ['a']
+states = {1, 2, 3, 4}
+sigma = {'a'}
 start = 3
-finals = [4]
+finals = {4}
 delta = {
     (1, 'a') : {2}
     (2, '') : {1, 4}

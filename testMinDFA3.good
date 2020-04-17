@@ -1,10 +1,10 @@
 
 DFA n7:
 ----------------------------------------
-states = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
-sigma = [0, 1]
+states = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'}
+sigma = {0, 1}
 start = A
-finals = ['C']
+finals = {'C'}
 delta = {
     ('A', 0) : B
     ('A', 1) : F
@@ -29,10 +29,10 @@ About to Minimize n7 (method 1: L&P)
 
 Minimized n7 is (method 1: L&P)
 ----------------------------------------
-states = [('A', 'E'), ('B', 'H'), ('C',), ('D', 'F'), ('G',)]
-sigma = [0, 1]
+states = {('A', 'E'), ('B', 'H'), ('C',), ('D', 'F'), ('G',)}
+sigma = {0, 1}
 start = ('A', 'E')
-finals = [('C',)]
+finals = {('C',)}
 delta = {
     (('A', 'E'), 0) : ('B', 'H')
     (('A', 'E'), 1) : ('D', 'F')
@@ -51,10 +51,10 @@ About to Minimize n7 (method 2: marking algo)
 
 Minimized n7 is (method 2: marking algo)
 ----------------------------------------
-states = [('A', 'E'), ('B', 'H'), ('C',), ('D', 'F'), ('G',)]
-sigma = [0, 1]
+states = {('A', 'E'), ('B', 'H'), ('C',), ('D', 'F'), ('G',)}
+sigma = {0, 1}
 start = ('A', 'E')
-finals = [('C',)]
+finals = {('C',)}
 delta = {
     (('A', 'E'), 0) : ('B', 'H')
     (('A', 'E'), 1) : ('D', 'F')

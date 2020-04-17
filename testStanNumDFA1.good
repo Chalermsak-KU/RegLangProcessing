@@ -1,10 +1,10 @@
 Original DFA is
 ----------------------------------------
 current DFA n1:
-states = ['five', 'four', 'one', 'six', 'three', 'two']
-sigma = ['a', 'b']
+states = {'five', 'four', 'one', 'six', 'three', 'two'}
+sigma = {'a', 'b'}
 start = one
-finals = ['one', 'three']
+finals = {'one', 'three'}
 delta = {
     ('five', 'a') : five
     ('five', 'b') : five
@@ -21,10 +21,10 @@ delta = {
 }
 ----------------------------------------
 Standard-numbered DFA m1:
-states = [1, 2, 3, 4, 5, 6]
-sigma = ['a', 'b']
+states = {1, 2, 3, 4, 5, 6}
+sigma = {'a', 'b'}
 start = 1
-finals = [1, 5]
+finals = {1, 5}
 delta = {
     (1, 'a') : 2
     (1, 'b') : 3
@@ -41,10 +41,10 @@ delta = {
 }
 ----------------------------------------
 Standard-numbered DFA m2:
-states = [1, 2, 3, 4, 5, 6]
-sigma = ['a', 'b']
+states = {1, 2, 3, 4, 5, 6}
+sigma = {'a', 'b'}
 start = 1
-finals = [1, 5]
+finals = {1, 5}
 delta = {
     (1, 'a') : 2
     (1, 'b') : 3

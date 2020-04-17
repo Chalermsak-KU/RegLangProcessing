@@ -65,10 +65,10 @@ class dfa:
                 self.delta['_H_', c] = '_H_'
 
     def __str__(self):
-        s =  [f'states = {sorted(self.states)}']
-        s.append(f'sigma = {sorted(self.sigma)}')
+        s =  [f'states = {prettySetStr(self.states)}']
+        s.append(f'sigma = {prettySetStr(self.sigma)}')
         s.append(f'start = {self.start}')
-        s.append(f'finals = {sorted(self.finals)}')
+        s.append(f'finals = {prettySetStr(self.finals)}')
         s.append('delta = {')
         for key, val in sorted(self.delta.items()):
                 s.append(f'    {key} : {val}')
@@ -470,10 +470,10 @@ class nfa:
         self.SNFA = None     # using internally by the method snfa()
 
     def __str__(self):
-        s =  [f'states = {sorted(self.states)}']
-        s.append(f'sigma = {sorted(self.sigma)}')
+        s =  [f'states = {prettySetStr(self.states)}']
+        s.append(f'sigma = {prettySetStr(self.sigma)}')
         s.append(f'start = {self.start}')
-        s.append(f'finals = {sorted(self.finals)}')
+        s.append(f'finals = {prettySetStr(self.finals)}')
         s.append('delta = {')
         for key, val in sorted(self.delta.items()):
                 s.append(f'    {key} : {val}')
@@ -1214,6 +1214,12 @@ def eval_regx_postfix(pfxlist):
             valstack.append(regx(item))
     assert len(valstack) == 1
     return valstack[0]
+
+def prettySetStr(setObj):
+    '''Assumes <setObj> is a Python set of same-type objects.
+       Returns a print-ready string of the set with members in sorted order.
+    '''
+    return '{' + sorted(setObj).__str__()[1:-1] + '}'
 
 def go():
     print('Hi there! I am an FA module.')

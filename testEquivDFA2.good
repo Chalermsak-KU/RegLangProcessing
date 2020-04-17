@@ -1,8 +1,8 @@
 dfa1 is
-states = [1, 2, 3, 4]
-sigma = ['a', 'b']
+states = {1, 2, 3, 4}
+sigma = {'a', 'b'}
 start = 1
-finals = [1, 2]
+finals = {1, 2}
 delta = {
     (1, 'a') : 2
     (1, 'b') : 3
@@ -15,10 +15,10 @@ delta = {
 }
 ----------------------------------------
 dfa2 is
-states = [10, 20, 30, 40]
-sigma = ['a', 'b']
+states = {10, 20, 30, 40}
+sigma = {'a', 'b'}
 start = 10
-finals = [10, 20]
+finals = {10, 20}
 delta = {
     (10, 'a') : 20
     (10, 'b') : 30

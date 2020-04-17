@@ -1,9 +1,9 @@
 
 NFA m2:
-states = [0, 1, 2, 3, 4]
-sigma = ['a', 'b']
+states = {0, 1, 2, 3, 4}
+sigma = {'a', 'b'}
 start = 0
-finals = [3, 4]
+finals = {3, 4}
 delta = {
     (0, '') : {1}
     (0, 'a') : {0}

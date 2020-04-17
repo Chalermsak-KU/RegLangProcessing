@@ -1,8 +1,8 @@
 Attached NFA is
-states = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-sigma = ['a', 'b', 'c']
+states = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+sigma = {'a', 'b', 'c'}
 start = 8
-finals = [9]
+finals = {9}
 delta = {
     (1, 'a') : {2}
     (2, '') : {9}
@@ -14,10 +14,10 @@ delta = {
     (8, '') : {1, 6}
 }
 Obtained NFA is
-states = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-sigma = ['a', 'b', 'c']
+states = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+sigma = {'a', 'b', 'c'}
 start = 8
-finals = [9]
+finals = {9}
 delta = {
     (1, 'a') : {2}
     (2, '') : {9}

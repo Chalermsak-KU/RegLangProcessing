@@ -1,9 +1,9 @@
 
 current NFA m12 (starting at 1):
-states = [1, 2, 3, 4, 5]
-sigma = ['a', 'b']
+states = {1, 2, 3, 4, 5}
+sigma = {'a', 'b'}
 start = 1
-finals = [4, 5]
+finals = {4, 5}
 delta = {
     (1, 'a') : {1, 2}
     (1, 'b') : {2}
@@ -15,10 +15,10 @@ delta = {
     (5, 'b') : {4}
 }
 new renumbered NFA n12 (starting at 11):
-states = [11, 12, 13, 14, 15]
-sigma = ['a', 'b']
+states = {11, 12, 13, 14, 15}
+sigma = {'a', 'b'}
 start = 11
-finals = [14, 15]
+finals = {14, 15}
 delta = {
     (11, 'a') : {11, 12}
     (11, 'b') : {12}
@@ -30,10 +30,10 @@ delta = {
     (15, 'b') : {14}
 }
 new renumbered NFA nn12 (starting at 1):
-states = [1, 2, 3, 4, 5]
-sigma = ['a', 'b']
+states = {1, 2, 3, 4, 5}
+sigma = {'a', 'b'}
 start = 1
-finals = [4, 5]
+finals = {4, 5}
 delta = {
     (1, 'a') : {1, 2}
     (1, 'b') : {2}
@@ -45,10 +45,10 @@ delta = {
     (5, 'b') : {4}
 }
 new renumbered NFA nnn12 (starting at 101):
-states = [101, 102, 103, 104, 105]
-sigma = ['a', 'b']
+states = {101, 102, 103, 104, 105}
+sigma = {'a', 'b'}
 start = 101
-finals = [104, 105]
+finals = {104, 105}
 delta = {
     (101, 'a') : {101, 102}
     (101, 'b') : {102}

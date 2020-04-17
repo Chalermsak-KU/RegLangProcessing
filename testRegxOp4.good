@@ -1,23 +1,23 @@
 NFA for regular expression '#' is
-states = [1, 2]
-sigma = []
+states = {1, 2}
+sigma = {}
 start = 1
-finals = [2]
+finals = {2}
 delta = {
     (1, '') : {2}
 }
 NFA for regular expression '@' is
-states = [1, 2]
-sigma = []
+states = {1, 2}
+sigma = {}
 start = 1
-finals = [2]
+finals = {2}
 delta = {
 }
 NFA for regular expression '#U@' with value '#' is
-states = [1, 2, 3, 4, 5, 6]
-sigma = []
+states = {1, 2, 3, 4, 5, 6}
+sigma = {}
 start = 5
-finals = [6]
+finals = {6}
 delta = {
     (1, '') : {2}
     (2, '') : {6}
@@ -31,10 +31,10 @@ regx # : string '12a' -> False
 regx # : string '' -> True
 
 NFA for regular expression '@U#' with value '#' is
-states = [1, 2, 3, 4, 5, 6]
-sigma = []
+states = {1, 2, 3, 4, 5, 6}
+sigma = {}
 start = 5
-finals = [6]
+finals = {6}
 delta = {
     (2, '') : {6}
     (3, '') : {4}

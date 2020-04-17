@@ -1,9 +1,9 @@
 NFA is as follows:
 ----------------------------------------
-states = [0, 1, 2, 3, 4, 5, 6]
-sigma = ['a', 'b']
+states = {0, 1, 2, 3, 4, 5, 6}
+sigma = {'a', 'b'}
 start = 0
-finals = [6]
+finals = {6}
 delta = {
     (0, '') : {2}
     (0, 'a') : {1}
