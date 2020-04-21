@@ -30,7 +30,7 @@ testDfaAcpt: testDfaAcpt1 testDfaAcpt2 testDfaAcpt3
 
 testReachable: testReachable1
 
-testMinDFA: testMinDFA1 testMinDFA2 testMinDFA3 testMinDFA4 testMinDFA5
+testMinDFA: testMinDFA1 testMinDFA2 testMinDFA3 testMinDFA4 testMinDFA5 testMinDFA6
 
 testRenumberDFA: testRenumberDFA1
 
@@ -163,6 +163,13 @@ testMinDFA4:
 
 testMinDFA5:
 	@echo 'Test: Minimization of DFA - # DFA that accepts every string over the alphabet'
+	@echo '----------'
+	$(PYTHON) $(PROGDIR)/$@.py >$@.out
+	diff $@.out $@.good && rm -f $@.out
+	@echo '----------'
+
+testMinDFA6:
+	@echo 'Test: Minimization of DFA - DFA in L&P p93, minimization includes removal of nonreachables'
 	@echo '----------'
 	$(PYTHON) $(PROGDIR)/$@.py >$@.out
 	diff $@.out $@.good && rm -f $@.out

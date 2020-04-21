@@ -406,13 +406,15 @@ class dfa:
         minDFA = dfa(delta=minDFAdelta, start=minDFAstart, finals=minDFAfinals)
         return minDFA
 
-    def minimized(self):
-        '''Returns a minimized DFA equivalent to the given DFA <self>,
-        using the table-marking algorithm such as described in H&U text
+    def minimized(self, verbose=False):
+        '''Returns a minimized DFA equivalent to the given DFA <self>.
+        Unlike the methods minimized1() and minimized2() above, this method
+        first eliminates all existing nonreachable states before doing the
+        minimization.
         
-        This function actually calls the above method minimized2()
+        This function actually calls the above method minimized1()
         '''
-        return self.minimized2()
+        return self.remove_nonreachable().minimized1(verbose)
 
 # --- end of class dfa --- #
 
