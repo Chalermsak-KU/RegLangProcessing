@@ -3,21 +3,21 @@ Original DFA is
 current DFA n1:
 states = {'five', 'four', 'one', 'six', 'three', 'two'}
 sigma = {'a', 'b'}
-start = one
+start = 'one'
 finals = {'one', 'three'}
 delta = {
-    ('five', 'a') : five
-    ('five', 'b') : five
-    ('four', 'a') : one
-    ('four', 'b') : five
-    ('one', 'a') : two
-    ('one', 'b') : four
-    ('six', 'a') : three
-    ('six', 'b') : five
-    ('three', 'a') : two
-    ('three', 'b') : six
-    ('two', 'a') : five
-    ('two', 'b') : three
+    ('five', 'a') : 'five'
+    ('five', 'b') : 'five'
+    ('four', 'a') : 'one'
+    ('four', 'b') : 'five'
+    ('one', 'a') : 'two'
+    ('one', 'b') : 'four'
+    ('six', 'a') : 'three'
+    ('six', 'b') : 'five'
+    ('three', 'a') : 'two'
+    ('three', 'b') : 'six'
+    ('two', 'a') : 'five'
+    ('two', 'b') : 'three'
 }
 ----------------------------------------
 Standard-numbered DFA m1:

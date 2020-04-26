@@ -2,19 +2,19 @@ DFA that accepts the empty set is
 ----------------------------------------
 states = {'_H_', 'f', 's'}
 sigma = {'0'}
-start = s
+start = 's'
 finals = {'f'}
 delta = {
-    ('_H_', '0') : _H_
-    ('f', '0') : _H_
-    ('s', '0') : _H_
+    ('_H_', '0') : '_H_'
+    ('f', '0') : '_H_'
+    ('s', '0') : '_H_'
 }
 ----------------------------------------
 Equivalent NFA is
 ----------------------------------------
 states = {'_H_', 'f', 's'}
 sigma = {'0'}
-start = s
+start = 's'
 finals = {'f'}
 delta = {
     ('_H_', '0') : {'_H_'}

@@ -22,7 +22,7 @@ testDFA: testDfaDef testDfaAcpt testReachable testMinDFA testRenumberDFA testSta
 
 testNFA: testNfaDef testEClosure testNfaToDfa testNfaAcpt testNFAtoRegx testRenumberNFA testEquivNfa testNfaEquivDfa
 
-testRegx: testRegxConstructor testPrimRegxGen testRegxOp testRegxToNfa testRegxEquiv
+testRegx: testRegxConstructor testPrimRegxGen testRegxOp testRegxToNfa testRegxToDfa testRegxEquiv
 
 testDfaDef: testDfaDef1 testDfaDef2
 
@@ -79,6 +79,8 @@ testRegxStar: testRegxStar1
 testRegxMix: testRegxMix1 testRegxMix2 testRegxMix3 testRegxMix4 testRegxMix11 testRegxMix22 testRegxMix33 testRegxMix44
 
 testRegxToNfa: testRegxToNfa1
+
+testRegxToDfa: testRegxToDfa1 testRegxToDfa2 testRegxToDfa3 testRegxToDfa4 
 
 testRegxEquiv: testRegxEquiv1 testRegxEquiv2 testRegxEquiv3
 
@@ -667,6 +669,34 @@ testRegxEquiv2:
 
 testRegxEquiv3:
 	@echo "Test: Equivalence of two regx's #3: binary strings that ends with 10"
+	@echo '----------'
+	$(PYTHON) $(PROGDIR)/$@.py >$@.out
+	diff $@.out $@.good && rm -f $@.out
+	@echo '----------'
+
+testRegxToDfa1:
+	@echo 'Test: regx-to-DFA conversion: #1 : c*(aUbc*)*'
+	@echo '----------'
+	$(PYTHON) $(PROGDIR)/$@.py >$@.out
+	diff $@.out $@.good && rm -f $@.out
+	@echo '----------'
+
+testRegxToDfa2:
+	@echo 'Test: regx-to-DFA conversion: #2 : (0U1)*111(0U1)*'
+	@echo '----------'
+	$(PYTHON) $(PROGDIR)/$@.py >$@.out
+	diff $@.out $@.good && rm -f $@.out
+	@echo '----------'
+
+testRegxToDfa3:
+	@echo 'Test: regx-to-DFA conversion: #3 : # (the set of the empty string)'
+	@echo '----------'
+	$(PYTHON) $(PROGDIR)/$@.py >$@.out
+	diff $@.out $@.good && rm -f $@.out
+	@echo '----------'
+
+testRegxToDfa4:
+	@echo 'Test: regx-to-DFA conversion: #4 : @ (the empty set)'
 	@echo '----------'
 	$(PYTHON) $(PROGDIR)/$@.py >$@.out
 	diff $@.out $@.good && rm -f $@.out

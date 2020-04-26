@@ -1,0 +1,10 @@
+Regular expression is #
+Resulting DFA is
+states = {1, 2}
+sigma = {'0'}
+start = 1
+finals = {1}
+delta = {
+    (1, '0') : 2
+    (2, '0') : 2
+}

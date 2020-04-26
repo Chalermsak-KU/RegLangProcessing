@@ -67,11 +67,14 @@ class dfa:
     def __str__(self):
         s =  [f'states = {prettySetStr(self.states)}']
         s.append(f'sigma = {prettySetStr(self.sigma)}')
-        s.append(f'start = {self.start}')
+        s.append(f'start = {repr(self.start)}')
         s.append(f'finals = {prettySetStr(self.finals)}')
         s.append('delta = {')
-        for key, val in sorted(self.delta.items()):
-                s.append(f'    {key} : {val}')
+        sorted_keystrlist = sorted([repr(x) for x in self.delta.keys()])
+        for keystr in sorted_keystrlist:
+            s.append(f'    {keystr} : {repr(self.delta[eval(keystr)])}')
+        #for key, val in sorted(self.delta.items()):
+        #    s.append(f'    {key} : {val}')
         s.append('}')
         return '\n'.join(s)
 
@@ -132,7 +135,7 @@ class dfa:
         '''
         return self.to_nfa().to_regx()
 
-    def renumbered(self, startnum):
+    def renumbered(self, startnum=1):
         '''Assumes <startnum> is an integer.
            Creates a new DFA which is identical to the DFA <self> 
            except that the state names are renumbered starting from 
@@ -140,7 +143,7 @@ class dfa:
            
            Returns the new renumbered DFA.
         '''
-        statelist = sorted(self.states)
+        statelist = list(self.states)
         nstates = len(statelist)
         sid = {statelist[i] : startnum + i for i in range(nstates)}
         #print(sid) # debug
@@ -474,11 +477,12 @@ class nfa:
     def __str__(self):
         s =  [f'states = {prettySetStr(self.states)}']
         s.append(f'sigma = {prettySetStr(self.sigma)}')
-        s.append(f'start = {self.start}')
+        s.append(f'start = {repr(self.start)}')
         s.append(f'finals = {prettySetStr(self.finals)}')
         s.append('delta = {')
-        for key, val in sorted(self.delta.items()):
-                s.append(f'    {key} : {val}')
+        sorted_keystrlist = sorted([repr(x) for x in self.delta.keys()])
+        for keystr in sorted_keystrlist:
+            s.append(f'    {keystr} : {self.delta[eval(keystr)]}')
         s.append('}')
         return '\n'.join(s)
 
@@ -748,7 +752,7 @@ class nfa:
         '''
         return self.to_regx1()
 
-    def renumbered(self, startnum):
+    def renumbered(self, startnum=1):
         '''Assumes <startnum> is an integer.
            Creates a new NFA which is identical to the NFA <self> except 
            that the state names are renumbered starting from 
@@ -756,7 +760,7 @@ class nfa:
            
            Returns the new renumbered NFA.
         '''
-        statelist = sorted(self.states)
+        statelist = list(self.states)
         nstates = len(statelist)
         sid = {statelist[i] : startnum + i for i in range(nstates)}
         #print(sid) # debug
@@ -914,6 +918,12 @@ class regx:
         Note that the returned nfa is just a deep copy of self.nfa
         '''
         return copy.deepcopy(self.nfa)
+
+    def to_dfa(self):
+        '''Returns a (new) dfa object that accepts the language defined by 
+        the regx <self>. The returned dfa is a minimized, standard-numbered one.
+        '''
+        return self.nfa.to_dfa().renumbered().minimized().standard_numbered()
 
     def equiv(self, other):
         '''Assumes <self> and <other> are both regx objects.
@@ -1218,10 +1228,12 @@ def eval_regx_postfix(pfxlist):
     return valstack[0]
 
 def prettySetStr(setObj):
-    '''Assumes <setObj> is a Python set of same-type objects.
+    '''Assumes <setObj> is a Python set
        Returns a print-ready string of the set with members in sorted order.
     '''
-    return '{' + sorted(setObj).__str__()[1:-1] + '}'
+    s = {repr(x) for x in setObj}  # convert the set into a set of representing strings
+    slist = sorted(s)              # so that it can be safely sorted and becomes a list
+    return '{' + ', '.join(slist) + '}'  # then return a string that represents it as a set.
 
 def go():
     print('Hi there! I am an FA module.')

@@ -3,25 +3,25 @@ Original DFA is
 current DFA n1:
 states = {'eight', 'five', 'four', 'one', 'seven', 'six', 'three', 'two'}
 sigma = {'a', 'b'}
-start = one
+start = 'one'
 finals = {'one', 'three'}
 delta = {
-    ('eight', 'a') : seven
-    ('eight', 'b') : three
-    ('five', 'a') : five
-    ('five', 'b') : five
-    ('four', 'a') : one
-    ('four', 'b') : five
-    ('one', 'a') : two
-    ('one', 'b') : four
-    ('seven', 'a') : six
-    ('seven', 'b') : eight
-    ('six', 'a') : three
-    ('six', 'b') : five
-    ('three', 'a') : two
-    ('three', 'b') : six
-    ('two', 'a') : five
-    ('two', 'b') : three
+    ('eight', 'a') : 'seven'
+    ('eight', 'b') : 'three'
+    ('five', 'a') : 'five'
+    ('five', 'b') : 'five'
+    ('four', 'a') : 'one'
+    ('four', 'b') : 'five'
+    ('one', 'a') : 'two'
+    ('one', 'b') : 'four'
+    ('seven', 'a') : 'six'
+    ('seven', 'b') : 'eight'
+    ('six', 'a') : 'three'
+    ('six', 'b') : 'five'
+    ('three', 'a') : 'two'
+    ('three', 'b') : 'six'
+    ('two', 'a') : 'five'
+    ('two', 'b') : 'three'
 }
 ----------------------------------------
 Standard-numbered DFA m1:

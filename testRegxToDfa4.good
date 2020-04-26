@@ -1,0 +1,9 @@
+Regular expression is @
+Resulting DFA is
+states = {1}
+sigma = {'0'}
+start = 1
+finals = {}
+delta = {
+    (1, '0') : 1
+}
