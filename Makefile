@@ -26,7 +26,7 @@ testRegx: testRegxConstructor testPrimRegxGen testRegxOp testRegxToNfa testRegxT
 
 testDfaDef: testDfaDef1 testDfaDef2
 
-testDfaAcpt: testDfaAcpt1 testDfaAcpt2 testDfaAcpt3
+testDfaAcpt: testDfaAcpt1 testDfaAcpt2 testDfaAcpt3 testDfaAcpt4
 
 testReachable: testReachable1
 
@@ -108,7 +108,7 @@ testDfaDef2:
 	@echo '----------'
 
 testDfaAcpt1:
-	@echo 'Test: DFA accepting a string in (01 U 010)*'
+	@echo 'Test: DFA accepting a string in (01 U 010)* : state names are strings'
 	@echo '----------'
 	$(PYTHON) $(PROGDIR)/$@.py >$@.out
 	diff $@.out $@.good && rm -f $@.out
@@ -123,6 +123,13 @@ testDfaAcpt2:
 
 testDfaAcpt3:
 	@echo 'Test: DFA accepting a string in (ab U ba)* '
+	@echo '----------'
+	$(PYTHON) $(PROGDIR)/$@.py >$@.out
+	diff $@.out $@.good && rm -f $@.out
+	@echo '----------'
+
+testDfaAcpt4:
+	@echo 'Test: DFA accepting a string in (01 U 010)* : state names are integers '
 	@echo '----------'
 	$(PYTHON) $(PROGDIR)/$@.py >$@.out
 	diff $@.out $@.good && rm -f $@.out

@@ -33,14 +33,21 @@ class dfa:
         <finals> is the (python) set of final states
         
         The dfa object's attributes <states> and <sigma> are derived from the 
-        three arguments above.  A hell state '_H_' may be added to <states> make 
-        <delta> a total function if the given <delta> is not.
+        three arguments above.  A trap state may be added to <states> make <delta> 
+        a total function if the given <delta> is not.
         '''
         self.states = {start}.union(finals)
         self.sigma = set()
         self.delta = delta
         self.start = start
         self.finals = finals
+
+        if isinstance(start, int):
+            trapState = -999
+        elif isinstance(start, str):
+            trapState = '_H_'
+        else:
+            trapState = None
 
         # extract states and sigma from delta
         for state, sym in self.delta:
@@ -53,16 +60,16 @@ class dfa:
             self.sigma = {'0'}  # default alphabet
 
         # next, make delta a total function by adding a hell state if needed
-        add_HELL = False
+        add_trap = False
         for state in self.states:
             for sym in self.sigma:
                 if (state, sym) not in self.delta:
-                    self.delta[state, sym] = '_H_'
-                    add_HELL= True
-        if add_HELL:
-            self.states.add('_H_')
+                    self.delta[state, sym] = trapState
+                    add_trap= True
+        if add_trap:
+            self.states.add(trapState)
             for c in self.sigma:
-                self.delta['_H_', c] = '_H_'
+                self.delta[trapState, c] = trapState
 
     def __str__(self):
         s =  [f'states = {prettySetStr(self.states)}']
