@@ -46,6 +46,8 @@ class dfa:
             trapState = -999
         elif isinstance(start, str):
             trapState = '_H_'
+        elif isinstance(start, tuple):
+            trapState = ()
         else:
             trapState = None
 
