@@ -87,6 +87,17 @@ class dfa:
         s.append('}')
         return '\n'.join(s)
 
+    def __repr__(self):
+        s = list()
+        s.append(f'dfa(start = {repr(self.start)},')
+        s.append(f'    finals = {prettySetStr(self.finals)},')
+        s.append( '    delta = {')
+        sorted_keystrlist = sorted([repr(x) for x in self.delta.keys()])
+        for keystr in sorted_keystrlist:
+            s.append(f'      {keystr} : {repr(self.delta[eval(keystr)])},')
+        s.append('    })')
+        return '\n'.join(s)
+
     def __eq__(self, other):
         '''Assumes that <self> and <other> are dfa objects.
         Checks if they are equal dfas (overloading ==).
@@ -495,6 +506,17 @@ class nfa:
         s.append('}')
         return '\n'.join(s)
 
+    def __repr__(self):
+        s = list()
+        s.append(f'nfa(start = {repr(self.start)},')
+        s.append(f'    finals = {prettySetStr(self.finals)},')
+        s.append( '    delta = {')
+        sorted_keystrlist = sorted([repr(x) for x in self.delta.keys()])
+        for keystr in sorted_keystrlist:
+            s.append(f'      {keystr} : {self.delta[eval(keystr)]},')
+        s.append('    })')
+        return '\n'.join(s)
+
     def equiv(self, other):
         '''Assumes <self> is an nfa and <other> is either a dfa or an nfa.
         Checks if they are equivalent, meaning that they accept the same
@@ -814,6 +836,9 @@ class regx:
 
     def __str__(self):
         return self.val
+
+    def __repr__(self):
+        return 'regx(' + repr(self.val) + ')';
 
     def __or__(self, other):  # operator | means union
         '''Assumes <self> and <other> are both regx objects.
