@@ -1,6 +1,6 @@
-from reglang.dfa import *
-from reglang.nfa import *
-from reglang.regx import *
+from reglang.dfa import dfa
+from reglang.nfa import nfa
+from reglang.regx import regx
 
 r1 = regx('c*(aUbc*)*')
 print(f'r1 is {r1}')

@@ -9,11 +9,6 @@ License: http://creativecommons.org/licenses/by-sa/4.0/
 """
 
 import copy
-"""
-from reglang.dfa import *
-from reglang.nfa import *
-from reglang.regx_parser import regx_parser
-"""
 
 class regx:
     '''represents a regular expression
@@ -34,7 +29,7 @@ class regx:
                 deldict = { (1, ''):{2} }
             else: # represents a single symbol
                 deldict = { (1, val):{2} }
-            self.nfa = nfa(delta=deldict, start=1, finals={2})
+            self.nfa = nfa.nfa(delta=deldict, start=1, finals={2})
         else: # not a singleton expression
             postfixlist, errmsg = regx_parser(val)
             if postfixlist == None:
@@ -73,7 +68,7 @@ class regx:
 
         result = regx()
         result.val = val
-        result.nfa = nfa(delta=newdelta, start=newstart, finals={newfinal})
+        result.nfa = nfa.nfa(delta=newdelta, start=newstart, finals={newfinal})
         #print(); print(result.nfa) # debug
         return result
 
@@ -115,7 +110,7 @@ class regx:
 
         result = regx()
         result.val = val
-        result.nfa = nfa(delta=newdelta, start=lhs_nfa.start, finals=rhs_nfa.finals)
+        result.nfa = nfa.nfa(delta=newdelta, start=lhs_nfa.start, finals=rhs_nfa.finals)
         return result
 
     def star(self):
@@ -139,7 +134,7 @@ class regx:
 
         result = regx()
         result.val = val
-        result.nfa = nfa(delta=newdelta, start=newstart, finals={newfinal})
+        result.nfa = nfa.nfa(delta=newdelta, start=newstart, finals={newfinal})
         return result
 
     def gen(self, s):
@@ -209,8 +204,9 @@ class regx:
 def go():
     print('Hi there! I am a regx module.')
 
-from reglang.dfa import *
-from reglang.nfa import *
+from reglang import dfa
+from reglang import nfa
+from reglang.util import prettySetStr
 from reglang.regx_parser import regx_parser
 if __name__ == '__main__':
     go()

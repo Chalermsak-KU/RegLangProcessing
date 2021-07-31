@@ -1,6 +1,6 @@
-from reglang.dfa import *
-from reglang.nfa import *
-from reglang.regx import *
+from reglang.dfa import dfa
+from reglang.nfa import nfa
+from reglang.regx import regx
 
 delta04 = { # an NFA p75 ex.2.2.9(a) L&P: language a*b(aUb)*
     (0, 'a'):{0},

@@ -1,6 +1,6 @@
-from reglang.dfa import *
-from reglang.nfa import *
-from reglang.regx import *
+from reglang.dfa import dfa
+from reglang.nfa import nfa
+from reglang.regx import regx
 
 delta = {  # another NFA from lecture note about thm2.2.1
     (0, 'a'):{1},

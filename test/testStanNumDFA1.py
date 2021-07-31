@@ -1,6 +1,6 @@
-from reglang.dfa import *
-from reglang.nfa import *
-from reglang.regx import *
+from reglang.dfa import dfa
+from reglang.nfa import nfa
+from reglang.regx import regx
 
 delta_n1 = {  # DFA p.94 L&P (for minimization algo in L&P)
     ('one', 'a') : 'two',

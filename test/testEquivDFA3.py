@@ -1,6 +1,6 @@
-from reglang.dfa import *
-from reglang.nfa import *
-from reglang.regx import *
+from reglang.dfa import dfa
+from reglang.nfa import nfa
+from reglang.regx import regx
 
 delta1 = {  # DFA that accepts strings in {a,b,c}* that has no substring ac
     (0, 'a') : 1,

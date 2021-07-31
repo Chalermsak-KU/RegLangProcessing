@@ -1,6 +1,6 @@
-from reglang.dfa import *
-from reglang.nfa import *
-from reglang.regx import *
+from reglang.dfa import dfa
+from reglang.nfa import nfa
+from reglang.regx import regx
 
 delta_m3 = {   # NFA fig 2.9 p.70 L&P, language: (aa* U aa*b U b)(ep U (aUb)a*)
     (0, 'b'):{2},

@@ -1,6 +1,6 @@
-from reglang.dfa import *
-from reglang.nfa import *
-from reglang.regx import *
+from reglang.dfa import dfa
+from reglang.nfa import nfa
+from reglang.regx import regx
 
 nfa1delta = { # this nfa is essentially a dfa that accepts (01 U 010)*
     (0, '0') : {1},

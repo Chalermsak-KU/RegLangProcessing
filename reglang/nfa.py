@@ -9,11 +9,6 @@ License: http://creativecommons.org/licenses/by-sa/4.0/
 """
 
 import copy
-"""
-from reglang.regx import *
-from reglang.dfa import *
-from reglang.util import *
-"""
 
 emptyset = frozenset()
 
@@ -61,7 +56,7 @@ class nfa:
             self.states.update(self.delta[state, sym])
             if sym != '':
                 self.sigma.add(sym)
-        self._decider = dfa(delta=dict(), start=None, finals=set())  # the equivalent (partial) DFA
+        self._decider = dfa.dfa(delta=dict(), start=None, finals=set())  # the equivalent (partial) DFA
         self._decider.sigma = self.sigma
         self._decider.start = tuple(sorted(self._ep_closure(self.start)))
         self._decider.states = {self._decider.start}
@@ -160,7 +155,7 @@ class nfa:
                     que.append(P)
                     dstates.add(P)
         dfinals = {Q for Q in dstates if set(Q).intersection(self.finals) != emptyset}
-        newdfa = dfa(delta=ddelta, start=dstart, finals=dfinals)
+        newdfa = dfa.dfa(delta=ddelta, start=dstart, finals=dfinals)
         return newdfa
 
     def _accept0(self, w):
@@ -174,7 +169,7 @@ class nfa:
            Note that this method is made obsolete by accept() method below.
         '''
         #print(f'Input is "{w}"') # debug
-        n = dfa(delta=dict(), start=None, finals=set())  # the equivalent DFA
+        n = dfa.dfa(delta=dict(), start=None, finals=set())  # the equivalent DFA
         n.sigma = self.sigma
         n.start = tuple(sorted(self._ep_closure(self.start)))
         n.states = {n.start}
@@ -249,12 +244,12 @@ class nfa:
             return self._Rdict[i, j, k]
 
         if k == 0:
-            result = regx('@')
+            result = regx.regx('@')
             for c in sorted(self.sigma) + ['']:
                 if (i,c) in self.delta and j in self.delta[i, c]:
-                    result = result | regx(c if c != '' else '#')
+                    result = result | regx.regx(c if c != '' else '#')
             if ep and i == j:
-                result = result | regx('#')
+                result = result | regx.regx('#')
         else:
             assert k > 0
             result = self._R(i,j,k-1,ep) | self._R(i,k,k-1,ep) & self._R(k,k,k-1,ep).star() & self._R(k,j,k-1,ep)
@@ -313,7 +308,7 @@ class nfa:
         for i, c in n.delta:
             for j in n.delta[i, c]:
                 rsym = '#' if c == '' else c
-                label[i, j] = label.setdefault((i, j), regx('@')) | regx(rsym)
+                label[i, j] = label.setdefault((i, j), regx.regx('@')) | regx.regx(rsym)
 
         # for debugging
         '''
@@ -352,7 +347,7 @@ class nfa:
         if (nstates-1, nstates) in label:
             return label[nstates-1, nstates]
         else: # no transition from start state to final state
-            return regx('@')
+            return regx.regx('@')
 
     def to_regx(self): # conversion algo from NFA to regular expression
         '''finds and returns a regular expression (regx object) for the language of NFA <self>
@@ -386,9 +381,9 @@ class nfa:
 def go():
     print('Hi there! I am an nfa module.')
 
-from reglang.regx import *
-from reglang.dfa import *
-from reglang.util import *
+from reglang import regx
+from reglang import dfa
+from reglang.util import prettySetStr
 if __name__ == '__main__':
     go()
 

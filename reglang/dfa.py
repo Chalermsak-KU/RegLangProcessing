@@ -9,11 +9,6 @@ License: http://creativecommons.org/licenses/by-sa/4.0/
 """
 
 import copy
-"""
-from reglang.regx import *
-from reglang.nfa import *
-from reglang.util import *
-"""
 
 emptyset = frozenset()
 
@@ -131,7 +126,7 @@ class dfa:
            Returns True if they are equivalent, False otherwise.
         '''
         stan_self = self.minimized().standard_numbered()
-        if isinstance(other, nfa):  # nfa needs to be converted to dfa first
+        if isinstance(other, nfa.nfa):  # nfa needs to be converted to dfa first
             other = other.to_dfa()
         stan_other = other.minimized().standard_numbered()
         return stan_self == stan_other
@@ -152,7 +147,7 @@ class dfa:
         nfa_start = self.start
         nfa_finals = self.finals
         nfa_delta = { (state,sym):{self.delta[state,sym]} for state,sym in self.delta }
-        new_nfa = nfa(delta=nfa_delta, start=nfa_start, finals=nfa_finals)
+        new_nfa = nfa.nfa(delta=nfa_delta, start=nfa_start, finals=nfa_finals)
         return new_nfa
 
     def to_regx(self):
@@ -447,9 +442,9 @@ class dfa:
 def go():
     print('Hi there! I am a dfa module.')
 
-from reglang.regx import *
-from reglang.nfa import *
-from reglang.util import *
+from reglang import regx
+from reglang import nfa
+from reglang.util import prettySetStr
 if __name__ == '__main__':
     go()
 

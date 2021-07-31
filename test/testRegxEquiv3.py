@@ -1,6 +1,6 @@
-from reglang.dfa import *
-from reglang.nfa import *
-from reglang.regx import *
+from reglang.dfa import dfa
+from reglang.nfa import nfa
+from reglang.regx import regx
 
 # r1 is the regx of {w in {0,1}*: w ends with 10}
 r1 = regx('(0U1)*10')
