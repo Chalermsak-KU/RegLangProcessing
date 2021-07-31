@@ -1,4 +1,6 @@
-from reglang.fa import *
+from reglang.dfa import *
+from reglang.nfa import *
+from reglang.regx import *
 
 x = regx('aUbUc')
 print(f"NFA for regular expression 'aUbUc' with value '{x.val}' is")

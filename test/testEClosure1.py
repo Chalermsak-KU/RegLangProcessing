@@ -1,4 +1,6 @@
-from reglang import fa
+from reglang.dfa import *
+from reglang.nfa import *
+from reglang.regx import *
 
 delta02 = {   # NFA fig 2.9 p.70 L&P
     (0, 'b'):{2},
@@ -10,13 +12,13 @@ delta02 = {   # NFA fig 2.9 p.70 L&P
     (4, '') :{3}
 }
 
-m02 = fa.nfa(delta=delta02, start=0, finals={4})
+m02 = nfa(delta=delta02, start=0, finals={4})
 dash40 = 40*'-'
 print('NFA is as follows:')
 print(dash40)
 print(m02)
 print(dash40)
 for q in m02.states:
-    closure = m02.ep_closure(q)
+    closure = m02._ep_closure(q)
     print(f'E-closure of state {q} = {closure}')
 print(dash40)

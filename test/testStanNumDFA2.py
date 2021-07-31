@@ -1,4 +1,6 @@
-from reglang import fa 
+from reglang.dfa import *
+from reglang.nfa import *
+from reglang.regx import *
 
 delta_n1 = {  # DFA p.93 L&P (for minimization algo in L&P)
     ('one', 'a') : 'two',
@@ -19,7 +21,7 @@ delta_n1 = {  # DFA p.93 L&P (for minimization algo in L&P)
     ('eight', 'b') : 'three'
 }
 
-n1 = fa.dfa(delta=delta_n1, start='one', finals={'one', 'three'})
+n1 = dfa(delta=delta_n1, start='one', finals={'one', 'three'})
 print('Original DFA is')
 print(40*'-')
 print(f'current DFA n1:\n{n1}')

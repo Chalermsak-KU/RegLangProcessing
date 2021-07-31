@@ -1,4 +1,6 @@
-from reglang import fa
+from reglang.dfa import *
+from reglang.nfa import *
+from reglang.regx import *
 
 delta10 = {  # NFA L&P exercise 2.3.7a (to convert to regexp)
     (1, 'a') : {1},
@@ -6,7 +8,7 @@ delta10 = {  # NFA L&P exercise 2.3.7a (to convert to regexp)
     (2, 'a') : {2},
     (2, 'b') : {1}
 }
-m10 = fa.nfa(delta=delta10, start=1, finals={2})
+m10 = nfa(delta=delta10, start=1, finals={2})
 
 print()
 print('NFA m10 is as follows:')

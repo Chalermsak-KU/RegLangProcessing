@@ -1,4 +1,6 @@
-from reglang import fa
+from reglang.dfa import *
+from reglang.nfa import *
+from reglang.regx import *
 
 #-----------------------#
 delta_n7 = {  # DFA p.156 HMU, 3rd Ed. (for minimization algo)
@@ -19,7 +21,7 @@ delta_n7 = {  # DFA p.156 HMU, 3rd Ed. (for minimization algo)
     ('H', 0) : 'G',
     ('H', 1) : 'C'
 }
-n7 = fa.dfa(delta=delta_n7, start='A', finals={'C'})
+n7 = dfa(delta=delta_n7, start='A', finals={'C'})
 print('\nDFA n7:')
 print(40*'-')
 print(n7)

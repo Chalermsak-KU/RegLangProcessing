@@ -1,4 +1,6 @@
-from reglang import fa
+from reglang.dfa import *
+from reglang.nfa import *
+from reglang.regx import *
 
 #-----------------------#
 delta_n6 = {  # DFA p.93 L&P (for eliminating nonreachable states)
@@ -20,7 +22,7 @@ delta_n6 = {  # DFA p.93 L&P (for eliminating nonreachable states)
     (8, 'b') : 3,
 
 }
-n6 = fa.dfa(delta=delta_n6, start=1, finals={1, 3, 7})
+n6 = dfa(delta=delta_n6, start=1, finals={1, 3, 7})
 print('Original DFA is')
 print(40*'-')
 print(n6)

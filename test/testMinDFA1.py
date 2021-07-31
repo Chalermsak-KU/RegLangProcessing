@@ -1,4 +1,6 @@
-from reglang import fa
+from reglang.dfa import *
+from reglang.nfa import *
+from reglang.regx import *
 
 #-----------------------#
 delta_n5 = {  # DFA p.94 L&P (for minimization algo in L&P)
@@ -16,7 +18,7 @@ delta_n5 = {  # DFA p.94 L&P (for minimization algo in L&P)
     (6, 'b') : 5
 }
 
-n5 = fa.dfa(delta=delta_n5, start=1, finals={1, 3})
+n5 = dfa(delta=delta_n5, start=1, finals={1, 3})
 print('Original DFA is')
 print(40*'-')
 print(n5)

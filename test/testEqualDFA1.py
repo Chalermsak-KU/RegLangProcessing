@@ -1,4 +1,6 @@
-from reglang import fa
+from reglang.dfa import *
+from reglang.nfa import *
+from reglang.regx import *
 
 delta1 = {  # DFA p.100 L&P with one more final state
     (1, 'a') : 2,
@@ -10,7 +12,7 @@ delta1 = {  # DFA p.100 L&P with one more final state
     (4, 'a') : 4,
     (4, 'b') : 4
 }
-dfa1 = fa.dfa(delta=delta1, start=1, finals={1,2})
+dfa1 = dfa(delta=delta1, start=1, finals={1,2})
 print('dfa1 is')
 print(dfa1)
 print(40*'-')
@@ -24,7 +26,7 @@ delta2 = {  # exactly the same as delta1
     (4, 'a') : 4,
     (4, 'b') : 4
 }
-dfa2 = fa.dfa(delta=delta2, start=1, finals={2,1})
+dfa2 = dfa(delta=delta2, start=1, finals={2,1})
 print('dfa2 is')
 print(dfa2)
 print(40*'-')

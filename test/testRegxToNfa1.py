@@ -1,4 +1,6 @@
-from reglang.fa import *
+from reglang.dfa import *
+from reglang.nfa import *
+from reglang.regx import *
 
 x = regx('aU(bc)*')
 n1 = x.nfa

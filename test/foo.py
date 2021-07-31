@@ -1,6 +1,8 @@
 from reglang.dfa import *
 from reglang.nfa import *
 from reglang.regx import *
+from reglang.nfa import *
+from reglang.regx import *
 
 delta = {   # a DFA that accepts (01 U 010)*
     ('s', '0') : '0',
@@ -14,6 +16,4 @@ print('DFA that accepts (01 U 010)* is')
 print(40*'-')
 print(dfa1)
 print(40*'-')
-r = dfa1.to_regx()
-print('Corresponding regular expression is')
-print(r)
+

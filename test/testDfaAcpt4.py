@@ -1,4 +1,6 @@
-from reglang import fa
+from reglang.dfa import *
+from reglang.nfa import *
+from reglang.regx import *
 
 delta = {   # a DFA that accepts (01 U 010)*
     (0, '0') : 1,
@@ -7,7 +9,7 @@ delta = {   # a DFA that accepts (01 U 010)*
     (3, '0'): 1,
     (3, '1'): 2
 }
-dfa1 = fa.dfa(delta=delta, start=0, finals={0, 2, 3})
+dfa1 = dfa(delta=delta, start=0, finals={0, 2, 3})
 print('DFA that accepts (01 U 010)* is')
 print(40*'-')
 print(dfa1)

@@ -1,4 +1,6 @@
-from reglang import fa
+from reglang.dfa import *
+from reglang.nfa import *
+from reglang.regx import *
 
 delta1 = {  # DFA that accepts every string in {a,b,c}*
     (0, 'a') : 1,
@@ -11,7 +13,7 @@ delta1 = {  # DFA that accepts every string in {a,b,c}*
     (2, 'b') : 2,
     (2, 'c') : 2
 }
-dfa1 = fa.dfa(delta=delta1, start=0, finals={0,1,2})
+dfa1 = dfa(delta=delta1, start=0, finals={0,1,2})
 print('dfa1 is')
 print(dfa1)
 print(40*'-')
@@ -32,7 +34,7 @@ delta2 = {  # another DFA that accepts the same language as dfa1
     (5, 'b') : 5,
     (5, 'c') : 5
 }
-dfa2 = fa.dfa(delta=delta2, start=1, finals={1,2,3,4,5})
+dfa2 = dfa(delta=delta2, start=1, finals={1,2,3,4,5})
 print('dfa2 is')
 print(dfa2)
 print(40*'-')

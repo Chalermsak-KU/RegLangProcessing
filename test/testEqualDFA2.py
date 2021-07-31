@@ -1,4 +1,6 @@
-from reglang import fa
+from reglang.dfa import *
+from reglang.nfa import *
+from reglang.regx import *
 
 delta1 = {  # DFA p.100 L&P with one more final state
     (1, 'a') : 2,
@@ -10,7 +12,7 @@ delta1 = {  # DFA p.100 L&P with one more final state
     (4, 'a') : 4,
     (4, 'b') : 4
 }
-dfa1 = fa.dfa(delta=delta1, start=1, finals={1,2})
+dfa1 = dfa(delta=delta1, start=1, finals={1,2})
 print('dfa1 is')
 print(dfa1)
 print(40*'-')
@@ -26,7 +28,7 @@ delta2 = {
     (4, 'a') : 4,
     (4, 'b') : 4
 }
-dfa2 = fa.dfa(delta=delta2, start=2, finals={1,2})
+dfa2 = dfa(delta=delta2, start=2, finals={1,2})
 print('dfa2 is')
 print(dfa2)
 print(40*'-')
@@ -44,7 +46,7 @@ delta3 = {
     (4, 'a') : 4,
     (4, 'b') : 4
 }
-dfa3 = fa.dfa(delta=delta3, start=1, finals={1,3})
+dfa3 = dfa(delta=delta3, start=1, finals={1,3})
 print('dfa3 is')
 print(dfa3)
 print(40*'-')
@@ -62,7 +64,7 @@ delta4 = {
     (4, 'a') : 4,
     (4, 'c') : 4
 }
-dfa4 = fa.dfa(delta=delta4, start=1, finals={1,2})
+dfa4 = dfa(delta=delta4, start=1, finals={1,2})
 print('dfa4 is')
 print(dfa4)
 print(40*'-')
@@ -80,7 +82,7 @@ delta5 = {
     (4, 'a') : 4,
     (4, 'b') : 2  # here is what differs
 }
-dfa5 = fa.dfa(delta=delta5, start=1, finals={1,2})
+dfa5 = dfa(delta=delta5, start=1, finals={1,2})
 print('dfa5 is')
 print(dfa5)
 print(40*'-')

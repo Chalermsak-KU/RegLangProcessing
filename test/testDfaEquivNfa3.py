@@ -1,4 +1,6 @@
-from reglang import fa
+from reglang.dfa import *
+from reglang.nfa import *
+from reglang.regx import *
 
 dfa1delta = { # this dfa accepts binary strings that ends with 10
     (1, '0') : 1,
@@ -9,7 +11,7 @@ dfa1delta = { # this dfa accepts binary strings that ends with 10
     (3, '1') : 2
 }
 
-dfa1 = fa.dfa(delta=dfa1delta, start=1, finals={3})
+dfa1 = dfa(delta=dfa1delta, start=1, finals={3})
 print('dfa1 is')
 print(dfa1)
 print(40*'-')
@@ -19,7 +21,7 @@ nfa2delta = { # this nfa accepts the same language as dfa1's
     (1, '1') : {1, 2},
     (2, '0') : {3}
 }
-nfa2 = fa.nfa(delta=nfa2delta, start=1, finals={3})
+nfa2 = nfa(delta=nfa2delta, start=1, finals={3})
 print(40*'-')
 print('nfa2 is')
 print(nfa2)

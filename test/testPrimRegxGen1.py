@@ -1,4 +1,6 @@
-from reglang.fa import *
+from reglang.dfa import *
+from reglang.nfa import *
+from reglang.regx import *
 
 a = regx('a')
 for s in ['a', 'b', '1', '']:

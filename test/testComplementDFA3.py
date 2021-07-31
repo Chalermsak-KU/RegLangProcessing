@@ -1,4 +1,6 @@
-from reglang import fa
+from reglang.dfa import *
+from reglang.nfa import *
+from reglang.regx import *
 
 #-----------------------#
 delta = {  # DFA p.94 L&P (for minimization algo)
@@ -15,7 +17,7 @@ delta = {  # DFA p.94 L&P (for minimization algo)
     (6, 'a') : 3,
     (6, 'b') : 5
 }
-dfa1 = fa.dfa(delta=delta, start=1, finals={1, 3})
+dfa1 = dfa(delta=delta, start=1, finals={1, 3})
 print('DFA that accepts (ab U ba)* is')
 print(40*'-')
 print(dfa1)

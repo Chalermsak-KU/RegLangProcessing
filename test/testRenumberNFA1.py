@@ -1,4 +1,6 @@
-from reglang import fa 
+from reglang.dfa import *
+from reglang.nfa import *
+from reglang.regx import *
 
 delta12 = {  # NFA example in the sheet (to be converted to regexp)
     (1, 'a') : {1, 2},
@@ -10,7 +12,7 @@ delta12 = {  # NFA example in the sheet (to be converted to regexp)
     (4, '')  : {2},
     (5, 'b') : {4}
 }
-m12 = fa.nfa(delta=delta12, start=1, finals={4, 5})
+m12 = nfa(delta=delta12, start=1, finals={4, 5})
 print()
 print(f'current NFA m12 (starting at {1}):\n{m12}')
 

@@ -1,4 +1,6 @@
-from reglang import fa
+from reglang.dfa import *
+from reglang.nfa import *
+from reglang.regx import *
 
 delta04 = { # an NFA p75 ex.2.2.9(a) L&P: language a*b(aUb)*
     (0, 'a'):{0},
@@ -10,7 +12,7 @@ delta04 = { # an NFA p75 ex.2.2.9(a) L&P: language a*b(aUb)*
     (4, 'a'):{3}
 }
 
-m04 = fa.nfa(delta=delta04, start=0, finals={3, 4})
+m04 = nfa(delta=delta04, start=0, finals={3, 4})
 dash40 = 40*'-'
 print('NFA is as follows:')
 print(dash40)

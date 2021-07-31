@@ -1,4 +1,6 @@
-from reglang import fa
+from reglang.dfa import *
+from reglang.nfa import *
+from reglang.regx import *
 
 #-----------------------#
 delta_n8 = {  # DFA Martin, 4th Ed., p.76 (for minimization algo)
@@ -23,7 +25,7 @@ delta_n8 = {  # DFA Martin, 4th Ed., p.76 (for minimization algo)
     (9, 'a') : 7,
     (9, 'b') : 8
 }
-n8 = fa.dfa(delta=delta_n8, start=0, finals={3, 4, 8, 9})
+n8 = dfa(delta=delta_n8, start=0, finals={3, 4, 8, 9})
 print('\nDFA n8:')
 print(40*'-')
 print(n8)

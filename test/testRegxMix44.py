@@ -1,4 +1,6 @@
-from reglang.fa import *
+from reglang.dfa import *
+from reglang.nfa import *
+from reglang.regx import *
 
 x = regx('c*(aUbc*)*')
 for s in ['', 'a', 'b', 'ccc', 'abcccaabc', 'ac', 'babcacc']:

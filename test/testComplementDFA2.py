@@ -1,8 +1,10 @@
-from reglang import fa
+from reglang.dfa import *
+from reglang.nfa import *
+from reglang.regx import *
 
 delta = {   # a DFA that accepts the empty set
 }
-dfa1 = fa.dfa(delta=delta, start='s', finals={'f'})
+dfa1 = dfa(delta=delta, start='s', finals={'f'})
 print('DFA that accepts the empty set is')
 print(40*'-')
 print(dfa1)
