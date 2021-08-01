@@ -1,12 +1,3 @@
-def removeSpace(s):
-    '''Assumes s is a string,
-       returns a copy of s with all spaces removed'''
-    t = []
-    for c in s:
-        if c != ' ':
-            t.append(c)
-    return ''.join(t)
-
 def regx_parser(regxstr):
     '''Assumes <regxstr> is a string of regular expressions
        using U, *, and () as operators, then parses and translates
@@ -45,7 +36,7 @@ def regx_parser(regxstr):
     op_stack = []      # postfix operator stack
 
     # prepare the regx string to feed the parser
-    next_lexeme.str = removeSpace(regxstr)
+    next_lexeme.str = _removeSpace(regxstr)
     next_lexeme.len = len(next_lexeme.str)
     next_lexeme.pos = 0
 
@@ -80,13 +71,13 @@ def regx_parser(regxstr):
                 pushstack(['_F', '_Tp'])
             elif stack[-1] == '_Tp':
                 stack.pop()
-                end_of_term(op_stack, outlist)
+                _end_of_term(op_stack, outlist)
             elif stack[-1] == '_F':
                 stack.pop()
                 pushstack(['_P', '_Fp'])
             elif stack[-1] == '_Fp':
                 stack.pop()
-                end_of_factor(op_stack, outlist)
+                _end_of_factor(op_stack, outlist)
             elif stack[-1] == '_P':
                 return None, '01 parse error at EOS, expecting a factor'
             else:
@@ -112,14 +103,14 @@ def regx_parser(regxstr):
                 pushstack(['_P', '_Fp'])
             elif stack[-1] == '_Fp':
                 stack.pop()
-                end_of_factor(op_stack, outlist)
+                _end_of_factor(op_stack, outlist)
             elif stack[-1] == '_P':
                 stack.pop()
                 pushstack([lexeme])
             else: # TOS is any symbol of the alphabet of the regular language
                 stack.pop()
                 state = Qstate
-                end_of_token_symbol(op_stack, outlist, lexeme)
+                _end_of_token_symbol(op_stack, outlist, lexeme)
 
         elif state == union_state:
             if stack == []:
@@ -135,13 +126,13 @@ def regx_parser(regxstr):
                 pushstack(['_F', '_Tp'])
             elif stack[-1] == '_Tp':
                 stack.pop()
-                end_of_term(op_stack, outlist)
+                _end_of_term(op_stack, outlist)
             elif stack[-1] == '_F':
                 stack.pop()
                 pushstack(['_P', '_Fp'])
             elif stack[-1] == '_Fp':
                 stack.pop()
-                end_of_factor(op_stack, outlist)
+                _end_of_factor(op_stack, outlist)
             elif stack[-1] == '_P':
                 return None, f'22 parse error at |{lexeme}|, expecting a factor'
             elif stack[-1] == 'U':
@@ -164,7 +155,7 @@ def regx_parser(regxstr):
                 pushstack(['_F', '_Tp'])
             elif stack[-1] == '_Tp':
                 stack.pop()
-                end_of_term(op_stack, outlist)
+                _end_of_term(op_stack, outlist)
             elif stack[-1] == '_F':
                 stack.pop()
                 pushstack(['_P', '_Fp'])
@@ -200,7 +191,7 @@ def regx_parser(regxstr):
                 pushstack(['_P', '_Fp'])
             elif stack[-1] == '_Fp':
                 stack.pop()
-                end_of_factor(op_stack, outlist)
+                _end_of_factor(op_stack, outlist)
             elif stack[-1] == '_P':
                 stack.pop()
                 pushstack(['(', '_E', ')'])
@@ -224,43 +215,52 @@ def regx_parser(regxstr):
                 pushstack(['_F', '_Tp'])
             elif stack[-1] == '_Tp':
                 stack.pop()
-                end_of_term(op_stack, outlist)
+                _end_of_term(op_stack, outlist)
             elif stack[-1] == '_F':
                 stack.pop()
                 pushstack(['_P', '_Fp'])
             elif stack[-1] == '_Fp':
                 stack.pop()
-                end_of_factor(op_stack, outlist)
+                _end_of_factor(op_stack, outlist)
             elif stack[-1] == '_P':
                 return None, f'52 parse error at |{lexeme}|, expecting a factor'
             elif stack[-1] == ')':
                 stack.pop()
                 state = Qstate
-                end_of_parenthesized_expression(op_stack, outlist)
+                _end_of_parenthesized_expression(op_stack, outlist)
             else:
                 return None, f'53 parse error at |{lexeme}|, expecting |{stack[-1]}|'
 
         else:
             return None, f'A1 Unknown parser state |{state}|'
 
-def end_of_term(op_stack, outlist): 
+def _end_of_term(op_stack, outlist): 
     '''internally used by the parser, called at the end of term'''
     if len(op_stack) != 0 and op_stack[-1] == 'U': # not the 1st term
         outlist.append(op_stack.pop())
 
-def end_of_factor(op_stack, outlist): 
+def _end_of_factor(op_stack, outlist): 
     '''internally used by the parser, called when the parser's TOS matches a factor'''
     if len(op_stack) != 0 and op_stack[-1] == '&': # not 1st factor of current term
         outlist.append(op_stack.pop())
 
-def end_of_token_symbol(op_stack, outlist, lexeme):
+def _end_of_token_symbol(op_stack, outlist, lexeme):
     '''internally used by the parser, called when the parser's TOS matches a symbol'''
     outlist.append(lexeme)
 
-def end_of_parenthesized_expression(op_stack, outlist):
+def _end_of_parenthesized_expression(op_stack, outlist):
     '''internally used by the parser, called when parser's TOS matches token ')' '''
     assert op_stack[-1] == '('
     op_stack.pop()
+
+def _removeSpace(s):
+    '''Assumes s is a string,
+       returns a copy of s with all spaces removed'''
+    t = []
+    for c in s:
+        if c != ' ':
+            t.append(c)
+    return ''.join(t)
 
 def go():
     print('Hi there! I am a regx_parser module.')

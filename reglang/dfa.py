@@ -1,5 +1,5 @@
 """
-Module For Processing Finite Automata And Regular Expressions - version 1.0
+Package For Processing Finite Automata And Regular Expressions - version 1.0
 Written by Chalermsak Chatdokmaiprai, Email: chalermsak.c@ku.th
 First Release Date: April 11, 2020
 
