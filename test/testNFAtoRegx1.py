@@ -1,6 +1,4 @@
-from reglang.dfa import dfa
 from reglang.nfa import nfa
-from reglang.regx import regx
 
 delta9 = {  # NFA L&P p.81 (to convert to regexp)
     (1, 'a') : {1},

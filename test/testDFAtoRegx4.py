@@ -1,6 +1,4 @@
 from reglang.dfa import dfa
-from reglang.nfa import nfa
-from reglang.regx import regx
 
 #-----------------------#
 delta = {  # DFA p.100 L&P

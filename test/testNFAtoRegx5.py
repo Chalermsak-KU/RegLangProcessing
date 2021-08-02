@@ -1,6 +1,4 @@
-from reglang.dfa import dfa
 from reglang.nfa import nfa
-from reglang.regx import regx
 
 delta = {  # NFA example in Kleene's Thm-2 slides  (to convert to regexp)
     (1, 'a') : {2},

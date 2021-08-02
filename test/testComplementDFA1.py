@@ -1,6 +1,4 @@
 from reglang.dfa import dfa
-from reglang.nfa import nfa
-from reglang.regx import regx
 
 delta = {   # a DFA that accepts (01 U 010)*
     ('s', '0') : '0',

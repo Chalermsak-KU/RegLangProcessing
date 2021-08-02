@@ -1,6 +1,4 @@
 from reglang.dfa import dfa
-from reglang.nfa import nfa
-from reglang.regx import regx
 
 #-----------------------#
 delta_n7 = {  # DFA p.156 HMU, 3rd Ed. (for minimization algo)

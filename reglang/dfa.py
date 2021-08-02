@@ -442,7 +442,6 @@ class dfa:
 def go():
     print('Hi there! I am a dfa module.')
 
-from reglang import regx
 from reglang import nfa
 from reglang.util import prettySetStr
 if __name__ == '__main__':

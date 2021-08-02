@@ -1,6 +1,4 @@
-from reglang.dfa import dfa
 from reglang.nfa import nfa
-from reglang.regx import regx
 
 nfa1delta = { # this nfa is essentially a dfa that accepts the complement of (01 U 010)*
     (0, '0') : {1},

@@ -1,6 +1,4 @@
 from reglang.dfa import dfa
-from reglang.nfa import nfa
-from reglang.regx import regx
 
 #-----------------------#
 delta_n5 = {  # DFA p.94 L&P (for minimization algo in L&P)

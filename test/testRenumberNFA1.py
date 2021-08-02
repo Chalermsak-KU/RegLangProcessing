@@ -1,6 +1,4 @@
-from reglang.dfa import dfa
 from reglang.nfa import nfa
-from reglang.regx import regx
 
 delta12 = {  # NFA example in the sheet (to be converted to regexp)
     (1, 'a') : {1, 2},

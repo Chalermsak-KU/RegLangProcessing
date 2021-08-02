@@ -1,6 +1,4 @@
 from reglang.dfa import dfa
-from reglang.nfa import nfa
-from reglang.regx import regx
 
 #-----------------------#
 delta_n8 = {  # DFA Martin, 4th Ed., p.76 (for minimization algo)

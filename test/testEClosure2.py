@@ -1,6 +1,4 @@
-from reglang.dfa import dfa
 from reglang.nfa import nfa
-from reglang.regx import regx
 
 delta1 = {   # an NFA
     (0, 'a'):{1},

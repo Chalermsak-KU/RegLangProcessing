@@ -1,6 +1,4 @@
-from reglang.dfa import dfa
 from reglang.nfa import nfa
-from reglang.regx import regx
 
 delta05 = {  # another NFA for ex.2.2.6 (a): L = (ab U aab U aba)* 
     (0, 'a'):{1, 2, 4},

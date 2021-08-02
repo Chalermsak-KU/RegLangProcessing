@@ -1,6 +1,4 @@
 from reglang.dfa import dfa
-from reglang.nfa import nfa
-from reglang.regx import regx
 
 #-----------------------#
 delta_n6 = {  # DFA p.93 L&P (for eliminating nonreachable states)

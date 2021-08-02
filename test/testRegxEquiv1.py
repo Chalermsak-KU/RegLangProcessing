@@ -1,5 +1,4 @@
 from reglang.dfa import dfa
-from reglang.nfa import nfa
 from reglang.regx import regx
 
 r1 = regx('c*(aUbc*)*')

@@ -1,6 +1,4 @@
 from reglang.dfa import dfa
-from reglang.nfa import nfa
-from reglang.regx import regx
 
 delta1 = {  # DFA that accepts the empty set
     (0, 'a') : 1,
