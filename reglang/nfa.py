@@ -381,9 +381,9 @@ class nfa:
 def go():
     print('Hi there! I am an nfa module.')
 
-from reglang import regx
-from reglang import dfa
-from reglang.util import prettySetStr
+from . import regx
+from . import dfa
+from .util import prettySetStr
 if __name__ == '__main__':
     go()
 

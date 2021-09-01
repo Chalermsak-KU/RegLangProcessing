@@ -204,9 +204,9 @@ class regx:
 def go():
     print('Hi there! I am a regx module.')
 
-from reglang import nfa
-from reglang.util import prettySetStr
-from reglang.regx_parser import regx_parser
+from . import nfa
+from .util import prettySetStr
+from .regx_parser import regx_parser
 if __name__ == '__main__':
     go()
 
