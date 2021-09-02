@@ -1,3 +1,4 @@
+export PYTHONPATH=..
 python3 DfaDef.py &&
 python3 DfaAcpt.py &&
 python3 Reachable.py &&
