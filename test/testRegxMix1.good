@@ -42,7 +42,7 @@ regx abc : string 'abcd' -> False
 regx abc : string 'a12b' -> False
 regx abc : string '' -> False
 
-NFA for regular expression 'a.star().star()' with value '(a*)*' is
+NFA for regular expression 'a.star.star' with value '(a*)*' is
 states = {1, 2, 3, 4, 5, 6}
 sigma = {'a'}
 start = 5

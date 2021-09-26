@@ -18,8 +18,8 @@ for s in ['a', 'b', 'c', 'ab', 'bc', 'abc', 'abcd', 'a12b', '']:
     print(f"regx {abc.val} : string '{s}' -> {abc > s}")
 print()
 
-ass = a.star().star()
-print(f"NFA for regular expression 'a.star().star()' with value '{ass.val}' is")
+ass = a.star.star
+print(f"NFA for regular expression 'a.star.star' with value '{ass.val}' is")
 print(ass.nfa)
 for s in ['', 'a', 'aa', 'aaa', 'aaaa', 'b', 'aaab', 'a12b']:
     print(f"regx {ass.val} : string '{s}' -> {ass > s}")

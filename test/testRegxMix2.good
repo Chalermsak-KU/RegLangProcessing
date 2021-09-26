@@ -16,7 +16,7 @@ regx (aUb)c : string 'ab' -> False
 regx (aUb)c : string 'ac' -> True
 regx (aUb)c : string '' -> False
 
-NFA for regular expression 'a|b.star()&c' with value 'aUb*c' is
+NFA for regular expression 'a|b.star&c' with value 'aUb*c' is
 regx aUb*c : string 'a' -> True
 regx aUb*c : string 'b' -> False
 regx aUb*c : string 'c' -> True
@@ -25,7 +25,7 @@ regx aUb*c : string 'bbc' -> True
 regx aUb*c : string 'ac' -> False
 regx aUb*c : string '' -> False
 
-NFA for regular expression 'a&(b&c).star()' with value 'a(bc)*' is
+NFA for regular expression 'a&(b&c).star' with value 'a(bc)*' is
 regx a(bc)* : string 'a' -> True
 regx a(bc)* : string 'b' -> False
 regx a(bc)* : string 'c' -> False

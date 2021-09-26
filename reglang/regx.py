@@ -113,6 +113,7 @@ class regx:
         result.nfa = nfa.nfa(delta=newdelta, start=lhs_nfa.start, finals=rhs_nfa.finals)
         return result
 
+    @property
     def star(self):
         '''Assumes <self> is a regx object.
            Returns a new regx object that are the Kleene Star of <self>.
@@ -185,7 +186,7 @@ class regx:
         for item in pfxlist:
             if item == '*':
                 operand1 = valstack.pop()
-                valstack.append(operand1.star())
+                valstack.append(operand1.star)
             elif item == '&':
                 operand2 = valstack.pop()
                 operand1 = valstack.pop()

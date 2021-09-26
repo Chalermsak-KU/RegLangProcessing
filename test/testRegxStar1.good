@@ -6,7 +6,7 @@ finals = {2}
 delta = {
     (1, 'a') : {2}
 }
-NFA for regular expression 'a.star()' with value 'a*' is
+NFA for regular expression 'a.star' with value 'a*' is
 states = {1, 2, 3, 4}
 sigma = {'a'}
 start = 3

@@ -252,7 +252,7 @@ class nfa:
                 result = result | regx.regx('#')
         else:
             assert k > 0
-            result = self._R(i,j,k-1,ep) | self._R(i,k,k-1,ep) & self._R(k,k,k-1,ep).star() & self._R(k,j,k-1,ep)
+            result = self._R(i,j,k-1,ep) | self._R(i,k,k-1,ep) & self._R(k,k,k-1,ep).star & self._R(k,j,k-1,ep)
 
         self._Rdict[i, j, k] = result
         #print(f"_R({i},{j},{k}) = {result if result.val != '@' else '{}'}") # debug
@@ -325,7 +325,7 @@ class nfa:
                     if (k, k) not in label:
                         beta = label[i, k] & label[k, j]
                     else:
-                        beta = label[i, k] & label[k, k].star() & label[k, j]
+                        beta = label[i, k] & label[k, k].star & label[k, j]
                     if (i, j) in label:
                         label[i, j] = label[i, j] | beta
                     else:
